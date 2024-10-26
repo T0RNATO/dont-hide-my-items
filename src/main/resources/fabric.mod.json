@@ -1,0 +1,28 @@
+{
+	"schemaVersion": 1,
+	"id": "dhmi",
+	"version": "${version}",
+	"name": "Don't Hide My Items!",
+	"description": "A mod that fixes the bundle UI in 1.20.2+",
+	"authors": [
+		"TorNato"
+	],
+	"contact": {
+
+	},
+	"license": "MIT",
+	"icon": "assets/dhmi/icon.png",
+	"environment": "client",
+	"entrypoints": {},
+	"mixins": [
+		{
+			"config": "dhmi.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.16.7",
+		"minecraft": ">=1.21.2",
+		"java": ">=21"
+	}
+}

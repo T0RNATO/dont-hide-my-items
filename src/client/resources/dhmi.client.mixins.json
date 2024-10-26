@@ -1,0 +1,15 @@
+{
+	"required": true,
+	"package": "dhmi.mixin.client",
+	"compatibilityLevel": "JAVA_21",
+	"client": [
+      "BundleContentsMixin",
+      "BundleMouseActionsMixin",
+      "BundleTooltipMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	},
+	"mixins": [
+	]
+}

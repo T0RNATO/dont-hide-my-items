@@ -11,7 +11,10 @@ public class BundleContentsMixin {
     public int size() { return 0; }
 
     // Make the bundle always show all items (probably shouldn't use Overwrite but oh well)
-    /***/
+    /**
+     * @author TorNato
+     * @reason easier this way
+     */
     @Overwrite
     public int getNumberOfItemsToShow() {
         return this.size();

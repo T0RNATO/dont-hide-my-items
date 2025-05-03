@@ -18,7 +18,7 @@ import java.util.List;
 
 @Mixin(ClientBundleTooltip.class)
 public abstract class BundleTooltipMixin {
-	@Unique	private static final int slotSize = 16;
+	@Unique	private static final int slotSize = 17;
 	@Unique	private static final int columns = 8;
 	@Unique	private static final DecimalFormat df = new DecimalFormat("#.##");
 
@@ -83,7 +83,7 @@ public abstract class BundleTooltipMixin {
 	 * @reason easier this way
 	 */
 	@Overwrite
-	private void renderBundleWithItemsTooltip(Font font, int i, int j, int k, int l, GuiGraphics guiGraphics) {
+	private void renderBundleWithItemsTooltip(Font font, int tooltip_x, int tooltip_y, int k, int l, GuiGraphics guiGraphics) {
 		List<ItemStack> list = this.getShownItems(this.contents.getNumberOfItemsToShow());
 		int index = 1;
 
@@ -92,15 +92,15 @@ public abstract class BundleTooltipMixin {
 				if (index > list.size()) {
 					break;
 				}
-				int x = i + col * BundleTooltipMixin.slotSize;
-				int y = j + row * BundleTooltipMixin.slotSize;
+				int x = tooltip_x + col * BundleTooltipMixin.slotSize;
+				int y = tooltip_y + row * BundleTooltipMixin.slotSize;
 				this.renderSlot(index, x, y, list, index, font, guiGraphics);
 				++index;
 			}
 		}
 
-		this.drawSelectedItemTooltip(font, guiGraphics, i, j, k);
-		this.drawProgressbar(i + this.getContentXOffset(k), j + this.itemGridHeight() + 4, font, guiGraphics);
+		this.drawSelectedItemTooltip(font, guiGraphics, tooltip_x, tooltip_y, k);
+		this.drawProgressbar(tooltip_x + this.getContentXOffset(k), tooltip_y + this.itemGridHeight() + 4, font, guiGraphics);
 	}
 
 	/**

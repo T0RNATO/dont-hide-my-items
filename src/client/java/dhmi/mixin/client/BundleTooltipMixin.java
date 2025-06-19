@@ -4,7 +4,7 @@ import com.llamalad7.mixinextras.injector.ModifyReturnValue;
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.inventory.tooltip.ClientBundleTooltip;
-import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.RenderPipelines;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
@@ -113,14 +113,14 @@ public abstract class BundleTooltipMixin {
 		boolean selected = index == this.contents.getSelectedItem();
 		ItemStack itemStack = list.get(index);
 		if (selected) {
-			guiGraphics.blitSprite(RenderType::guiTextured, SLOT_HIGHLIGHT_BACK_SPRITE, j - 4, k - 4, 24, 24);
+			guiGraphics.blitSprite(RenderPipelines.GUI_TEXTURED, SLOT_HIGHLIGHT_BACK_SPRITE, j - 4, k - 4, 24, 24);
 		}
 
 		guiGraphics.renderItem(itemStack, j, k, l);
 		guiGraphics.renderItemDecorations(font, itemStack, j, k);
 
 		if (selected) {
-			guiGraphics.blitSprite(RenderType::guiTexturedOverlay, SLOT_HIGHLIGHT_FRONT_SPRITE, j - 4, k - 4, 24, 24);
+			guiGraphics.blitSprite(RenderPipelines.GUI_TEXTURED, SLOT_HIGHLIGHT_FRONT_SPRITE, j - 4, k - 4, 24, 24);
 		}
 	}
 }

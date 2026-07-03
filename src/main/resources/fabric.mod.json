@@ -3,7 +3,7 @@
 	"id": "dhmi",
 	"version": "${version}",
 	"name": "Don't Hide My Items!",
-	"description": "A mod that fixes the bundle UI in 1.20.2+",
+	"description": "A mod that fixes the bundle UI in 26.2+",
 	"authors": [
 		"TorNato"
 	],
@@ -21,8 +21,8 @@
 		}
 	],
 	"depends": {
-		"fabricloader": ">=0.16.14",
-		"minecraft": ">=1.21.6",
-		"java": ">=21"
+		"fabricloader": ">=0.19.3",
+		"minecraft": ">=21.2",
+		"java": ">=25"
 	}
 }

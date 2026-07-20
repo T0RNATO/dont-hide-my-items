@@ -19,6 +19,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import java.text.DecimalFormat;
 
+@SuppressWarnings("OverwriteAuthorRequired")
 @Mixin(ClientBundleTooltip.class)
 public abstract class BundleTooltipMixin {
 	@Unique	private static final int slotSize = 17;
@@ -106,8 +107,8 @@ public abstract class BundleTooltipMixin {
 	@Redirect(method = "extractSlot", at = @At("MIXINEXTRAS:EXPRESSION"))
 	private void foo(GuiGraphicsExtractor instance, RenderPipeline renderPipeline, Identifier location, int x, int y, int width, int height) {}
 
-	@ModifyExpressionValue(method = "extractBundleWithItemsTooltip", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/screens/inventory/tooltip/ClientBundleTooltip;getContentXOffset(I)I"), slice = @Slice(from = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/screens/inventory/tooltip/ClientBundleTooltip;extractSelectedItemTooltip(Lnet/minecraft/client/gui/Font;Lnet/minecraft/client/gui/GuiGraphicsExtractor;III)V")))
-	private int modifyProgressBarX(int original) {
+	@Overwrite
+	private static int getContentXOffset(int x) {
 		return 0;
 	}
 }
